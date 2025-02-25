@@ -1,0 +1,263 @@
+/* Applique une police par défaut et élimine les marges et le padding */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;  /* Couleur de fond grise claire */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;  /* Assure que le body occupe toute la hauteur de la fenêtre */
+}
+
+body, html {
+    width: 100%;
+    overflow-x: hidden;  /* Empêche le débordement horizontal */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Styles pour l'en-tête */
+header {
+    background-color: #dc1010;  /* Couleur de fond rouge foncé */
+    color: #fff;  /* Couleur du texte blanc */
+    padding: 10px 0;  /* Padding vertical de 10px */
+    text-align: center;  /* Centrer le texte */
+    position: relative;  /* Position relative pour le z-index */
+    z-index: 9999;  /* Assure que l'en-tête est au-dessus de la barre latérale */
+    width: 100%;  /* Assure que l'en-tête prend toute la largeur de la page */
+    margin: 0;  /* Élimine toutes les marges */
+    box-sizing: border-box;  /* Assure que le padding est inclus dans la largeur */
+}
+
+/* Style pour le titre de l'en-tête */
+header h1 {
+    margin: 0px;  /* Élimine les marges */
+}
+
+/* Styles pour le bouton de menu toggle */
+.menu-toggle {
+    font-size: 22px;  /* Taille de police de 22px */
+    cursor: pointer;  /* Curseur en forme de main pour pointer */
+    display: flex;  /* Utilise flexbox pour aligner les éléments */
+    align-items: center;  /* Centre les éléments verticalement */
+    position: fixed;  /* Position absolue pour positionner précisément */
+    top: -40px;  /* Distance de 10px par rapport au haut */
+    left: 15px;  /* Distance de 20px par rapport à la gauche */
+    z-index: 1100;  /* Assure que le menu-toggle est au-dessus de la barre latérale */
+    margin-top: 50px;  /* Marge supérieure de 50px */
+    margin-left: -10px;  /* Marge gauche de -20px */
+    padding: 10px;  /* Padding de 10px */
+    transition: background-color 0.3s ease, color 0.3s ease;  /* Transition fluide pour les changements de couleur */
+}
+
+/* Couleur de survol pour le menu toggle */
+#menu-toggle:hover {
+    background-color: #13e611;  /* Change la couleur de fond en vert clair au survol */
+    box-sizing: border-box;  /* Assure que le padding est inclus dans la largeur */
+}
+
+/* Icônes en couleur noire lorsque la barre latérale est transparente */
+.menu-toggle img {
+    width: 26px;  /* Largeur de 20px */
+    height: 29px;  /* Hauteur de 20px */
+    filter: invert(100%)
+}
+
+/* Styles pour la barre latérale */
+#sidebar {
+    background-color: transparent;  /* Barre latérale complètement transparente */
+    display: flex;  /* Utilise flexbox pour aligner les éléments */
+    flex-direction: column;  /* Aligne les éléments en colonne */
+    padding: 20px;  /* Padding de 20px */
+    position: fixed;  /* Position fixe pour rester en place lors du défilement */
+    top: 0%;  /* Distance de 0 par rapport au haut */
+    left: 0;  /* Distance de 0 par rapport à la gauche */
+    width: 160px;  /* Largeur initiale de 1px */
+    height: calc(100vh - 155px);  /* Ajustez la hauteur pour qu'elle ne chevauche pas le footer */
+    z-index: 1000;  /* Assure que la barre latérale est en arrière-plan */
+    overflow: hidden;  /* Masque le débordement */
+}
+
+/* Barre latérale opaque lorsqu'elle est active */
+#sidebar.active {
+    width: 114px;  /* Largeur de 160px lorsqu'elle est active */
+    background-color: rgb(4 4 4);  /* Couleur de fond noire avec opacité complète */
+    z-index: 1000;  /* Utilise une valeur de z-index plus basse */
+    top: 0px;
+}
+
+#sidebar.active .menu-toggle img {
+    filter: invert(100%);
+}
+
+/* Styles pour la liste des éléments du menu */
+#sidebar ul {
+    list-style: none;  /* Élimine les puces de la liste */
+    margin: 0px;  /* Élimine les marges */
+    padding: 0;  /* Élimine le padding */
+    width: 100%;  /* Largeur de 100% */
+    margin-top: 50px;  /* Marge supérieure de 90px */
+}
+
+/* Styles pour chaque élément de la liste */
+#sidebar ul li {
+    position: relative;  /* Position relative pour les éléments enfants absolus */
+}
+
+/* Styles pour chaque lien dans la liste */
+#sidebar ul li a {
+    color: #ece4e4;  /* Couleur noire pour les textes lorsque le menu est fermé */
+    text-decoration: none;  /* Élimine la décoration de texte */
+    display: flex;  /* Utilise flexbox pour aligner les éléments */
+    align-items: center;  /* Centre les éléments verticalement */
+    padding: 10px;  /* Padding de 10px */
+    line-height: 10px;
+    position: relative;  /* Position relative pour les éléments enfants */
+    width: calc(100% + 20px);  /* Utilise toute la largeur du conteneur avec le décalage */
+    left: -20px;  /* Décalage de -20px */
+}
+
+/* Couleur blanche pour les textes lorsque le menu est déballé */
+#sidebar.active ul li a {
+    color: #ffffff;  /* Couleur blanche */
+}
+
+/* Couleur de fond verte au survol pour les éléments du menu, sans toucher à la couleur de l'icône */
+#sidebar.active ul li a:hover {
+    background-color: #13e611;  /* Change la couleur de fond en vert */
+    color: #000;  /* Assure que la couleur du texte reste noire */
+}
+
+/* Assure que l'icône ne change pas de couleur */
+#sidebar ul li a:hover img {
+    filter: none;  /* Désactive les filtres */
+}
+
+/* Icônes en couleur noire */
+#sidebar ul li a img {
+    width: 20px;  /* Largeur de 20px */
+    height: 20px;  /* Hauteur de 20px */
+    margin-right: 10px;  /* Marge droite de 10px */
+    filter: invert(60%);  /* Couleur noire */
+    margin-left: 0px;  /* Élimine la marge gauche */
+    opacity: 1;  /* Opacité complète */
+}
+
+/* Couleur de fond verte au survol pour les icônes */
+#sidebar ul li a img:hover {
+    background-color: #f5faf8;  /* Change la couleur de fond en vert */
+    border-radius: 200%;  /* Ajoute un bord arrondi (facultatif) */
+    transition: background-color 0.3s ease;  /* Ajoute une transition fluide */
+}
+
+/* Icônes en couleur blanche lorsque la barre latérale est active */
+#sidebar.active ul li a img {
+    filter: invert(100%);  /* Couleur blanche */
+}
+
+/* Masquer le texte du menu par défaut */
+#sidebar ul li a span.menu-text {
+    display: none;  /* Masque le texte du menu */
+}
+
+/* Afficher le texte du menu lorsque le menu est actif */
+#sidebar.active ul li a span.menu-text {
+    display: inline;  /* Affiche le texte du menu */
+    margin-left: 0px;  /* Marge gauche de 10px */
+    margin-top: 5px
+}
+
+/* Styles pour le bouton de fermeture du menu */
+.menu-close {
+    font-size: 40px;  /* Taille de police de 24px */
+    cursor: pointer;  /* Curseur en forme de main pour pointer */
+    position: absolute;  /* Position absolue pour positionner précisément */
+    top: -40px;  /* Distance de 15px par rapport au haut */
+    right: 20px;  /* Distance de 20px par rapport à la droite */
+    display: none;  /* Masque par défaut */
+    z-index: 1100;  /* Assure que le bouton de fermeture est au-dessus de la barre latérale */
+    margin-top: 50px;  /* Marge supérieure de 50px */
+}
+
+/* Change la couleur de fond en vert clair au survol */
+#menu-close:hover {
+    background-color: #13e611;
+}
+
+/* Afficher le bouton de fermeture lorsque le menu est actif */
+#sidebar.active .menu-close {
+    display: block;  /* Affiche le bouton de fermeture */
+}
+
+/* Styles pour la section home */
+section#home {
+    padding: 20px;  /* Padding de 20px */
+    text-align: center;  /* Centre le texte */
+}
+
+/* Styles pour le titre de la section home */
+section#home h1 {
+    font-size: 60px;  /* Taille de police de 36px */
+    color: #333;  /* Couleur de texte gris foncé */
+}
+
+/* Styles pour le texte de la section home */
+section#home p {
+    font-size: 18px;  /* Taille de police de 18px */
+    color: #fc0a0a;  /* Couleur de texte gris clair */
+}
+
+/* Assure que le body occupe toute la hauteur de la fenêtre */
+html, body {
+    height: 100%;
+    margin: 0;  /* Élimine les marges */
+    padding: 0;  /* Élimine le padding */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Flexbox pour aligner les éléments verticalement */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;  /* Hauteur minimale de 100% de la hauteur de la fenêtre */
+}
+
+/* Conteneur pour le contenu principal */
+#content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+#map {
+    height: 500px;
+    width: 90%;
+    margin-left: 40px;
+    margin-bottom: 40px;
+}
+
+footer {
+    background-color: #000;  /* Couleur de fond noire */
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;;
+    position: relative;  /* Position relative pour les éléments enfants */
+    width: 100%;
+    height: auto;
+    bottom: 0px;
+    z-index: 100;
+    box-sizing: border-box;
+}
+
+/* Styles pour le footer */
+footer p {
+    margin: 0;  /* Élimine toutes les marges par défaut */
+    padding: 0;  /* Élimine tous les paddings */
+}
+
+/* Ajuste la marge entre les deux paragraphes dans le footer */
+footer p + p {
+    margin-top: 1px;  /* Ajuste la marge supérieure entre les paragraphes */
+}

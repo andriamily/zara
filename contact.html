@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacts</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Contacts</h1>
+        <div class="menu-toggle" id="menu-toggle">
+            <img src="images/icone-menu.png" alt="Menu Icon" class="menu-icon"> <!-- Assurez-vous de remplacer 'path_to_menu_icon.png' par le chemin correct vers votre icône de menu -->
+        </div>
+        <nav id="sidebar">
+            <ul>
+                <li><a href="index.html"><img src="images/icone-home.png" alt="Home Icon"><span class="menu-text"> Page d'accueil</span></a></li>
+                <li><a href="about.html"><img src="images/icone-about.png" alt="About Icon"><span class="menu-text"> À propos</span></a></li>
+                <li><a href="services.html"><img src="images/icone-services.png" alt="Services Icon"><span class="menu-text"> Nos services</span></a></li>
+                <li><a href="portfolios.html"><img src="images/icone-portfolio.png" alt="Portfolios Icon"><span class="menu-text"> Portfolios</span></a></li>
+                <li><a href="contact.html"><img src="images/icone-contact.png" alt="Contact Icon"><span class="menu-text"> Contact</span></a></li>
+            </ul>
+            <div class="menu-close hidden" id="menu-close">&times;</div>
+        </nav>
+    </header>
+    <div id="content">
+            <h1>Contactez-nous</h1>
+            <form action="submit_form.php" method="post">
+            <label for="name">Nom :</label>
+            <input type="text" id="name" name="name" required>  
+            <label for="email">Email :</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">Message :</label>
+            <textarea id="message" name="message" required></textarea>
+            <button type="submit">Envoyer</button>
+    </div>
+    </section>
+    <footer>
+        <p>&copy; 2025 Andriamily. Tous droits réservés.</p>
+        <p>radoandriamily@gmail.com</p>
+    </footer>
+    <script src="scripts.js"></script>
+</body>
+</html>

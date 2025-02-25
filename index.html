@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomePage</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="D:/My_Project/leaflet.css"> <!-- Assurez-vous que le chemin est correct -->
+</head>
+<body>
+    <header>
+        <h1>Bienvenue sur notre site</h1>
+        <div class="menu-toggle" id="menu-toggle">
+            <img src="images/icone-menu.png" alt="Menu Icon" class="menu-icon">
+        </div>
+        <nav id="sidebar">
+            <ul>
+                <li><a href="index.html"><img src="images/icone-home.png" alt="Home Icon"><span class="menu-text"> Page d'accueil</span></a></li>
+                <li><a href="about.html"><img src="images/icone-about.png" alt="About Icon"><span class="menu-text"> À propos</span></a></li>
+                <li><a href="services.html"><img src="images/icone-services.png" alt="Services Icon"><span class="menu-text"> Nos services</span></a></li>
+                <li><a href="portfolios.html"><img src="images/icone-portfolio.png" alt="Portfolios Icon"><span class="menu-text"> Portfolios</span></a></li>
+                <li><a href="contact.html"><img src="images/icone-contact.png" alt="Contact Icon"><span class="menu-text"> Contact</span></a></li>
+            </ul>
+            <div class="menu-close hidden" id="menu-close">&times;</div>
+        </nav>
+    </header>
+    <div id="content">
+        <section id="home">
+            <h1>Bienvenue sur notre site</h1>
+            <img src="images/20241217_181607.JPG" alt="Description de l'image" style="width:90%; height:auto;">
+            <p>Contenu de la page d'accueil...</p>
+        </section>
+
+        <!-- Section pour la carte interactive -->
+        <section id="map-container">
+            <h2>Notre Carte Interactive</h2>
+            <div id="map"></div>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2025 Andriamily. Tous droits réservés.</p>
+        <p>radoandriamily@gmail.com</p>
+    </footer>
+    <script src="D:/My_Project/leaflet.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>
